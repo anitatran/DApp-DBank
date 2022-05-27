@@ -21,6 +21,8 @@ document.querySelector("form").addEventListener("submit", async (e) => {
   depositElement.value.length !== 0 && await dbank.topUp(deposit);  
   withdrawalElement.value.length !== 0 && await dbank.withdrawal(withdrawal)
   depositElement.value = withdrawalElement.value = "";
+
+  await dbank.compound();
   checkBalance();
 
   button.removeAttribute("disabled");
